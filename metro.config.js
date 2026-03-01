@@ -1,14 +1,19 @@
 const { getDefaultConfig } = require('expo/metro-config')
-const { withUniwindConfig } = require('uniwind/metro') // make sure this import exists
+const { withUniwindConfig } = require('uniwind/metro')
+const path = require('path')
 
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname)
 
-// Apply uniwind modifications before exporting
+config.resolver.nodeModulesPaths = [
+  path.resolve(__dirname, 'node_modules'),
+  'C:/p',
+]
+
+config.resolver.unstable_enableSymlinks = true
+
 const uniwindConfig = withUniwindConfig(config, {
-  // relative path to your global.css file
   cssEntryFile: './src/global.css',
-  // optional: path to typings
   dtsFile: './src/uniwind-types.d.ts',
 })
 

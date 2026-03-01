@@ -10,6 +10,11 @@
     "slug": "kit-expo-uniwind",
     "android": {
       "package": "com.anonymous.kitexpouniwind"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c9e6acc0-fb82-4662-a6c1-07250747a347"
+      }
     }
   }
 }
